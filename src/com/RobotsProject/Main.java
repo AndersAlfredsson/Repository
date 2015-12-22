@@ -8,16 +8,17 @@ public class Main {
     static public ConcurrentLinkedQueue<Command> commandQueue = new ConcurrentLinkedQueue<Command>();
 
     public static void main(String[] args) {
-	    ConnectionThread server = new ConnectionThread();
+	    ConnectionThread cThread = new ConnectionThread();
+        ServerThread sThread = new ServerThread();
 
         Command c;
         String s;
-        while(true)
-        {
-            if (commandQueue.size() > 0) {
-                s = commandQueue.poll().toString();
-                System.out.println(s);
-            }
-        }
+//        while(true)
+//        {
+//            if (commandQueue.size() > 0) {
+//                s = commandQueue.poll().toString();
+//                System.out.println(s);
+//            }
+//        }
     }
 }

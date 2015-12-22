@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Anders on 12/19/2015.
+ *Handles communication between server and client.
  */
 public class ClientComThread extends Thread {
     private static int numberOfPlayers = 0;
@@ -18,7 +19,8 @@ public class ClientComThread extends Thread {
     private final PrintWriter out;
 
     /***
-     *
+     * Sets the socket and initializes the Bufferedreader and Printwriter. Also sends a command to the command queue to
+     * create a new player.
      * @param s
      * @throws IOException
      */
@@ -27,6 +29,8 @@ public class ClientComThread extends Thread {
         socket = s;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+        out.println("Connected to the server!");
+        Main.commandQueue.add(new Command(playerNumber, "create player", ""));
         start();
     }
 

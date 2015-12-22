@@ -2,10 +2,15 @@ package com.RobotsProject.ModelClasses;
 
 /**
  * Created by Anders on 12/20/2015.
- * Super class for player, robot and rubble.
+ * Super class for player, robot and rubble. Can also be an empty position on the playing field.
  */
 public class GameObject{
-    private Position position;
+    protected Position position;
+
+    public GameObject()
+    {
+
+    }
 
     public GameObject(int x, int y)
     {

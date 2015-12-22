@@ -7,6 +7,7 @@ import java.net.Socket;
 
 /**
  * Created by Anders on 12/19/2015.
+ * Handles incoming connections from player clients. Spawns a new ClientComThread for each connected client.
  */
 public class ConnectionThread extends Thread {
     static final int PORTNR = 2000;
