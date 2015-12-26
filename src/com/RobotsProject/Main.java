@@ -2,6 +2,10 @@ package com.RobotsProject;
 
 import com.RobotsProject.ModelClasses.Command;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Main {
@@ -11,14 +15,19 @@ public class Main {
 	    ConnectionThread cThread = new ConnectionThread();
         ServerThread sThread = new ServerThread();
 
-        Command c;
-        String s;
-//        while(true)
-//        {
-//            if (commandQueue.size() > 0) {
-//                s = commandQueue.poll().toString();
-//                System.out.println(s);
-//            }
-//        }
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while(true)
+        {
+            try {
+                String s = br.readLine();
+                if (s.equals("s"))
+                    sThread.startGame();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 }

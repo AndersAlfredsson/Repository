@@ -19,6 +19,7 @@ public class Game {
         playingField = new PlayingField(w,h);
     }
 
+    //Ändra så att ist för att skicka 2 positioner, skicka referens till spelare och förändring i x och y led som int parametrar?
     public void movePlayer(int pNr, String direction)
     {
         Player p = playerList.get(pNr);

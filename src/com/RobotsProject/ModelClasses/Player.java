@@ -24,6 +24,33 @@ public class Player extends GameObject {
             case "east":
                 position.setX(position.getX() + 1);
                 break;
+            case "west":
+                position.setX(position.getX() - 1);
+                break;
+            case "north":
+                position.setY(position.getY() - 1);
+                break;
+            case "south":
+                position.setY(position.getY() + 1);
+                break;
+            case "northwest":
+                position.setX(position.getX() - 1);
+                position.setY(position.getY() - 1);
+                break;
+            case "northeast":
+                position.setX(position.getX() + 1);
+                position.setY(position.getY() - 1);
+                break;
+            case "southeast":
+                position.setX(position.getX() + 1);
+                position.setY(position.getY() + 1);
+                break;
+            case "southwest":
+                position.setX(position.getX() - 1);
+                position.setY(position.getY() + 1);
+                break;
+            case "wait":
+                break;
             default:
                 break;
         }

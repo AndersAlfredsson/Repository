@@ -24,6 +24,7 @@ public class ConnectionThread extends Thread {
                 //Waits for new connection.
                 Socket socket = serverSocket.accept();
                 ClientComThread ccThread = new ClientComThread(socket);
+                ClientComThread.AllPlayers.add(ccThread);
                 System.out.println("New Connection, " + socket);
             }
         } catch (IOException e) {

@@ -11,8 +11,8 @@ import java.util.ArrayList;
  *Handles communication between server and client.
  */
 public class ClientComThread extends Thread {
-    private static int numberOfPlayers = 0;
-    private static ArrayList<ClientComThread> AllPlayers = new ArrayList<ClientComThread>();
+    public static int numberOfPlayers = 0;
+    public static ArrayList<ClientComThread> AllPlayers = new ArrayList<ClientComThread>();
     private final int playerNumber = numberOfPlayers++;
     private final Socket socket;
     private final BufferedReader in;
@@ -28,14 +28,13 @@ public class ClientComThread extends Thread {
     {
         socket = s;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+        out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
         out.println("Connected to the server!");
-        Main.commandQueue.add(new Command(playerNumber, "create player", ""));
         start();
     }
 
     /**
-     * Reads commands from the client and adds that command to the commandQueue
+     * Reads commands from the client and adds that command to the commandQueue.
      */
     @Override
     public void run() {
@@ -72,9 +71,14 @@ public class ClientComThread extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            numberOfPlayers--;
             this.interrupt();
         }
+    }
 
+    public void messageClient(String msg)
+    {
+        out.println(msg);
     }
 
     /**
@@ -94,5 +98,3 @@ public class ClientComThread extends Thread {
         Main.commandQueue.add(new Command(pNumber, cType, act));
     }
 }
-
-//Todo:
