@@ -1,4 +1,4 @@
-package com.RobotsProject.ModelClasses;
+package com.ModelClasses;
 
 /**
  * Created by Anders on 12/21/2015.

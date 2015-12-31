@@ -1,14 +1,12 @@
-package com.RobotsProject.ModelClasses;
+package com.ModelClasses;
 
 /**
  * Created by Anders on 12/22/2015.
  */
 public class Player extends GameObject {
-
-
+    private String name;
     private int playerNumber;
     private boolean alive;
-
 
     public Player(int playerNr){
         playerNumber = playerNr;
@@ -72,4 +70,8 @@ public class Player extends GameObject {
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 }

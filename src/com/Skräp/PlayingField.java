@@ -1,4 +1,9 @@
-package com.RobotsProject.ModelClasses;
+package com.Skräp;
+
+import com.ModelClasses.EmptySpace;
+import com.ModelClasses.GameObject;
+import com.ModelClasses.Player;
+import com.ModelClasses.Position;
 
 /**
  * Created by Anders on 12/22/2015.

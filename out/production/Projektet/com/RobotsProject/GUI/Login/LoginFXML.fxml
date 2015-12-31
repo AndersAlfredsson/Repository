@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="com.RobotsProject.GUI.Login.loginController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="root">
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Label fx:id = "welcome" text = "Connect to a Server" GridPane.columnIndex = "1" GridPane.rowIndex = "0" GridPane.columnSpan= "4" />
+    <TextField GridPane.columnIndex = "5" GridPane.rowIndex = "1"/>
+    <TextField GridPane.columnIndex = "5" GridPane.rowIndex = "2"/>
+    <Label text = "IP-Address" GridPane.columnIndex = "0" GridPane.rowIndex = "1" GridPane.columnSpan= "4"/>
+    <Label text = "Name" GridPane.columnIndex = "0" GridPane.rowIndex = "2" GridPane.columnSpan= "4"/>
+    <Button fx:id = "b1" text = "Connect" GridPane.columnIndex = "5" GridPane.rowIndex = "3" GridPane.columnSpan= "2" onAction="#connectButtonClicked"/>
+
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+</GridPane>

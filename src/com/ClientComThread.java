@@ -1,6 +1,6 @@
-package com.RobotsProject;
+package com;
 
-import com.RobotsProject.ModelClasses.Command;
+import com.ModelClasses.Command;
 
 import java.io.*;
 import java.net.Socket;
@@ -29,7 +29,7 @@ public class ClientComThread extends Thread {
         socket = s;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-        out.println("Connected to the server!");
+        out.println("connectedtoserver");
         start();
     }
 
@@ -49,7 +49,7 @@ public class ClientComThread extends Thread {
                     }
                     else
                     {
-                        buildCommand(command);
+                        //buildCommand(command);
                         System.out.println("Command from Player " + playerNumber + " : " + command);
                     }
                 }
@@ -71,7 +71,7 @@ public class ClientComThread extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            numberOfPlayers--;
+            System.out.println("Player " + numberOfPlayers-- + " Disconnected");
             this.interrupt();
         }
     }
@@ -95,6 +95,6 @@ public class ClientComThread extends Thread {
         String act = comParts[1];
 
         //Todo: Gör trådsäker.
-        Main.commandQueue.add(new Command(pNumber, cType, act));
+        MainController.commandQueue.add(new Command(pNumber, cType, act));
     }
 }

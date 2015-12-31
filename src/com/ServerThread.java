@@ -1,6 +1,8 @@
-package com.RobotsProject;
+package com;
 
-import com.RobotsProject.ModelClasses.*;
+import com.ModelClasses.Command;
+import com.ModelClasses.Game;
+import com.ModelClasses.Player;
 
 
 /**
@@ -68,7 +70,7 @@ public class ServerThread extends Thread {
 
         //If the poll returns null the queue is empty and the client has failed to send input during its turn.
         //Default command is to Wait.
-        if ((com = Main.commandQueue.poll()) == null) {
+        if ((com = MainController.commandQueue.poll()) == null) {
             executeCommand(new Command(turnCounter, "move", "wait"));
         } else if (com.getPlayerNr() == turnCounter) {
             executeCommand(com);
@@ -79,12 +81,16 @@ public class ServerThread extends Thread {
 
     public void startGame()
     {
+        while (theGame.getPlayerList().size() < theGame.getMinPlayers())
+        {
+
+        }
         //Spawn players
         //Spawn robots
         //Spawn rubble
         //Send game state to all clients
         start();
-        broadcastToAllClients("Game Started!");
+        //broadcastToAllClients("Game Started!");
     }
 
     private void executeCommand(Command com) {
